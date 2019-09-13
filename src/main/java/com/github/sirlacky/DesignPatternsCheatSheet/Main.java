@@ -1,5 +1,7 @@
 package com.github.sirlacky.DesignPatternsCheatSheet;
 
+import com.github.sirlacky.DesignPatternsCheatSheet.Factory.Factory;
+import com.github.sirlacky.DesignPatternsCheatSheet.Factory.Fruit;
 import com.github.sirlacky.DesignPatternsCheatSheet.Singleton.Singleton;
 
 public class Main {
@@ -18,6 +20,10 @@ public class Main {
         System.out.println(singleton1.name);
         System.out.println(singleton.name);
 
-
+        /*Factory v. simple - example
+        <=================================================>*/
+        Factory factory = new Factory();
+        System.out.println(factory.giveFruit("red").getClass().getName());    //Apple object
+        System.out.println(factory.giveFruit("yellow").getClass().getName()); //Lemon object
     }
 }
