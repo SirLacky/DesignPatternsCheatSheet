@@ -1,7 +1,7 @@
 package com.github.sirlacky.DesignPatternsCheatSheet;
 
+import com.github.sirlacky.DesignPatternsCheatSheet.Builder.Drink;
 import com.github.sirlacky.DesignPatternsCheatSheet.Factory.Factory;
-import com.github.sirlacky.DesignPatternsCheatSheet.Factory.Fruit;
 import com.github.sirlacky.DesignPatternsCheatSheet.Singleton.Singleton;
 
 public class Main {
@@ -25,5 +25,13 @@ public class Main {
         Factory factory = new Factory();
         System.out.println(factory.giveFruit("red").getClass().getName());    //Apple object
         System.out.println(factory.giveFruit("yellow").getClass().getName()); //Lemon object
+
+        /*Builder v. fluent - example
+        <=================================================>*/
+        Drink drink = new Drink.Builder("Mohito") //requied final field from constructor
+                .volume(500)
+                .price(10.5)
+                .build();
+        System.out.println(drink.getName() + " " + drink.getNumber() + "ml, price: " + drink.getPrice());
     }
 }
