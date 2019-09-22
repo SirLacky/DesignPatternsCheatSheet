@@ -2,6 +2,8 @@ package com.github.sirlacky.DesignPatternsCheatSheet;
 
 import com.github.sirlacky.DesignPatternsCheatSheet.Builder.Drink;
 import com.github.sirlacky.DesignPatternsCheatSheet.Factory.Factory;
+import com.github.sirlacky.DesignPatternsCheatSheet.Observer.Channel;
+import com.github.sirlacky.DesignPatternsCheatSheet.Observer.User;
 import com.github.sirlacky.DesignPatternsCheatSheet.Singleton.Singleton;
 
 public class Main {
@@ -33,5 +35,15 @@ public class Main {
                 .price(10.5)
                 .build();
         System.out.println(drink.getName() + " " + drink.getNumber() + "ml, price: " + drink.getPrice());
+
+        /*Observer - testing
+        <=================================================>*/
+        Channel channel = new Channel();
+
+        User user = new User("SirLacky");
+        channel.register(user); //User subscribes Channel
+        channel.publishNewVideo(); //Channel publishing new video (total 1)
+        channel.publishNewVideo(); //Channel publishing another video (total 2)
+
     }
 }
